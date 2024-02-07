@@ -11,7 +11,7 @@ dotenv.config();
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://tanmol543:EXq8GkTWmX2viT5g@cluster0.dbgr8c2.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://Anmol908:anmol%40123@cluster.dho9xwt.mongodb.net/?retryWrites=true&w=majority"
     );
     console.log("Database connected successully");
   } catch (error) {
