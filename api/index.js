@@ -21,17 +21,19 @@ const connectDB = async () => {
   }
 };
 
-app.use(cors({
-  origin: 'https://65e35bb7b5d5f1dd35b80a0b--subtle-moonbeam-15655c.netlify.app',
-  credentials: true,
-  optionSuccessStatus: 200
-}))
+
 
 const __dirname = path.resolve();
 
 connectDB();
 
 const app = express();
+
+app.use(cors({
+  origin: 'https://65e35bb7b5d5f1dd35b80a0b--subtle-moonbeam-15655c.netlify.app',
+  credentials: true,
+  optionSuccessStatus: 200
+}))
 
 app.use(express.json());
 
