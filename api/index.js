@@ -7,7 +7,7 @@ import listingRouter from "./routes/listing.route.js";
 import contactRouter from "./routes/contact.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
-const cors = require('cors');
+import cors from "cors";
 dotenv.config();
 const connectDB = async () => {
   try {
