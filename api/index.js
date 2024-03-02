@@ -7,6 +7,7 @@ import listingRouter from "./routes/listing.route.js";
 import contactRouter from "./routes/contact.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
+const cors = require('cors');
 dotenv.config();
 const connectDB = async () => {
   try {
@@ -19,6 +20,13 @@ const connectDB = async () => {
     console.log("Error in Connection");
   }
 };
+
+app.use(cors({
+  origin: 'https://65e35bb7b5d5f1dd35b80a0b--subtle-moonbeam-15655c.netlify.app',
+  credentials: true,
+  optionSuccessStatus: 200
+}))
+
 const __dirname = path.resolve();
 
 connectDB();
@@ -38,10 +46,10 @@ app.use("/api/auth", authRouter);
 app.use("/api/listing", listingRouter);
 app.use("/api/contact", contactRouter);
 
-app.use(express.static(path.join(__dirname, "/client/dist")));
+app.use(express.static(path.join(__dirname, "/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 app.use((err, req, res, next) => {
